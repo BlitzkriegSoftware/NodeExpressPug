@@ -2,4 +2,25 @@ extends layout
 
 block content
   h1= title
-  p Info
+
+  table.table.table-condensed.table-bordered
+    tr
+      th(class='text-left')
+        | form element
+      th(class='text-left')
+        | value
+    tr
+      td(class='text-left')
+        | E-mail
+      td(class='text-left')
+        #{data.email}
+    tr
+      td(class='text-left')
+        | Password
+      td(class='text-left')
+        #{data.password}
+    tr
+      td(class='text-left')
+        | Remember Me
+      td(class='text-left')
+        #{data.rememberme}
