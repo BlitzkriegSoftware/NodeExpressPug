@@ -3,6 +3,17 @@ extends layout
 block content
   h1= title
 
+  if errors.length > 0
+    div(class='card card-body bump-down')
+      h5(class='card-title') Form Errors
+      div(class='card-text')
+      ul
+        each e in errors
+          li= e
+
+  p.bump-down 
+  |
+
   table.table.table-condensed.table-bordered
     tr
       th(class='text-left')
