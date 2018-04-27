@@ -27,11 +27,16 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
 
   body(class='container-fluid')
-    nav.navbar.navbar-default
-      .container-fluid
-        .navbar-header
-          a.navbar-brand(href='/') 
-            img(alt='Brand' src='/images/blizkrieglogo300.png' class='logoImage')/ 
-          .nav.navbar-nav
-            h3 NodeJS + Express + PUG
+
+    nav.navbar.navbar-light.bg-light
+      a.navbar-brand(href='/')
+        img.d-inline-block.align-top(src='/images/blizkrieglogo300.png' width='30' height='30' alt='')
+        |     NodeJS + Express + PUG
+
     block content
+
+    block foot
+      #footer
+        footer.footer
+          .container
+            span.text-muted (c) 2018 Blitzkrieg Software, MIT License

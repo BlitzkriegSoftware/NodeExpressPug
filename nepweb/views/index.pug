@@ -1,9 +1,7 @@
 extends layout
 
 block content
-  div(class='panel panel-default bump-down')
-    div(class='panel-heading')
-      h3(class='panel-title') Welcome to #{title}
-    div(class='panel-body')
-      p 
-        a(href='/info') Demo Form
+  div(class='card card-body bump-down')
+    h4(class='card-title') Welcome to #{title}
+    p(class='card-text') 
+      a.lead(href='/info') Demo Form
