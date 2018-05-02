@@ -1,36 +1,43 @@
+// Build request/response pipline by assembling middleware
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var lessMiddleware = require('less-middleware');
-var bodyParser = require('body-parser')
-var logger = require('morgan');
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
+var helmet = require('helmet');
+var validator = require('express-validator');
 
-var validator = require('express-validator')
-
+// Route modules
 var indexRouter = require('./routes/index');
 var infoRouter = require('./routes/info');
-var helmet = require('helmet')
 
+// Build pipeline
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// security middleware
 app.use(helmet());
 
-app.use(logger('dev'));
+// request/response logging
+app.use(morgan('dev'));
 
+// Form input
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(validator());
 
-// app.use(cookieParser());
-
+// LESS to CSS
 app.use(lessMiddleware(path.join(__dirname, 'public')));
+
+// Static Content
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Application Routes
 app.use('/', indexRouter);
 app.use('/info', infoRouter);
 
