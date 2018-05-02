@@ -10,6 +10,7 @@ var validator = require('express-validator')
 
 var indexRouter = require('./routes/index');
 var infoRouter = require('./routes/info');
+var helmet = require('helmet')
 
 var app = express();
 
@@ -17,11 +18,16 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(helmet());
+
 app.use(logger('dev'));
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(validator());
-app.use(cookieParser());
+
+// app.use(cookieParser());
+
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
