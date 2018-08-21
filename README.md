@@ -49,14 +49,23 @@ express -v pug -c less nepweb
 a. cd into your site folder
 b. `npm i` to restore package dependancies
 c. Run it to make sure it works: 
-```bash
+```DOS
 SET DEBUG={website}:* & npm start
 ```
 
 For example mine is: "nepweb" (Node-Express-Pug) so
 
-```bash
+DOS: 
+
+```DOS
 SET DEBUG=nepweb:* & npm start
+```
+
+BASH:
+
+```BASH
+#! /bin/bash
+SET DEBUG=nepweb:* ; npm start
 ```
 
 d. stop the site
