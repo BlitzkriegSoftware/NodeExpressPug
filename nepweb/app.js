@@ -7,7 +7,8 @@ var lessMiddleware = require('less-middleware');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var helmet = require('helmet');
-var validator = require('express-validator');
+
+// const { check, validationResult } = require('express-validator');
 
 // Route modules
 var indexRouter = require('./routes/index');
@@ -29,7 +30,6 @@ app.use(morgan('dev'));
 // Form input
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(validator());
 
 // LESS to CSS
 app.use(lessMiddleware(path.join(__dirname, 'public')));

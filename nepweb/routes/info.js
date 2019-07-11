@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const { check, validationResult } = require('express-validator/check')
-const { matchedData } = require('express-validator/filter')
+const { check, validationResult } = require('express-validator')
+const { matchedData } = require('express-validator')
 
 router.get('/', function(req, res, next) {
   res.render('infoForm', { title: 'Info' });
