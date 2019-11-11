@@ -78,6 +78,19 @@ I recommend adding in `express-validator` (<a href="https://www.npmjs.com/packag
 npm i express-validator --save
 ```
 
+### Docker, PCF Support ###
+
+The `Dockerfile` can be used to create an image from this demo.
+
+The `Manifest.yml` can be used to deploy this image to Cloud Foundry, the Environment variable `CF_DOCKER_PASSWORD` should be set.
+
+```bash
+cf push -f Manifest.yml
+```
+
+Please use your own docker.io repository.
+
+
 ### Generating a Web Service  ### 
 
 I strongly recommend contract 1st development, see my video:

@@ -1,0 +1,11 @@
+---
+applications:
+- name: node-express-pug-web
+  docker:
+    image: blitzkriegsoftware/nep
+    username: blitzkriegsoftware
+  memory: 256M
+  instances: 1
+  health-check-http-endpoint: /
+  health-check-type: http
+  timeout: 15
